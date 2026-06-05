@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --app-bg-image: linear-gradient(180deg, #fcfeff 0%, #eef6ff 48%, #f8fbff 100%);
+    --hero-bg-image: radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 30%),
+      radial-gradient(circle at top right, rgba(251, 191, 36, 0.14), transparent 24%);
+    --surface: rgba(255, 255, 255, 0.64);
+    --surface-strong: rgba(255, 255, 255, 0.88);
+    --text-primary: #0f172a;
+    --text-secondary: #334155;
+    --text-muted: #64748b;
+    --border: rgba(148, 163, 184, 0.28);
+    --accent: #0891b2;
+    --accent-soft: rgba(8, 145, 178, 0.12);
+    --accent-border: rgba(14, 165, 233, 0.22);
+    --glow: rgba(56, 189, 248, 0.18);
+    --card-gradient-start: rgba(14, 165, 233, 0.12);
+    --card-gradient-end: rgba(245, 158, 11, 0.1);
+    --visual-bg: linear-gradient(180deg, rgba(224, 242, 254, 0.92), rgba(255, 255, 255, 0.72));
+    --face-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(226, 232, 240, 0.95));
+    --eye: #0f172a;
+  }
+
+  * {
+    border-color: var(--border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply antialiased;
+    font-family: "Space Grotesk", "Segoe UI", sans-serif;
+    background: #f8fbff;
+    color: var(--text-primary);
+    transition:
+      background-color 0.45s ease,
+      color 0.45s ease;
+  }
+
+  a {
+    @apply transition-colors;
+  }
+
+  ::selection {
+    background: rgba(14, 165, 233, 0.2);
+  }
+}
+
+@layer components {
+  .grid-noise {
+    background-image:
+      linear-gradient(rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+    background-size: 42px 42px;
+  }
+}
