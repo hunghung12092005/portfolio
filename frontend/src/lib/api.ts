@@ -7,7 +7,7 @@ export function buildApiUrl(path: string) {
   const normalizedPath = path.startsWith("/") ? path : `/${path}`;
 
   if (apiBaseUrl) {
-    return `${trimTrailingSlash(apiBaseUrl)}/api${normalizedPath}`;
+    return `${trimTrailingSlash(apiBaseUrl)}${normalizedPath}`;
   }
 
   if (import.meta.env.DEV) {
