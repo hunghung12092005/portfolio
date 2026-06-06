@@ -4,22 +4,30 @@
 
 @layer base {
   :root {
-    --app-bg-image: linear-gradient(180deg, #fcfeff 0%, #eef6ff 48%, #f8fbff 100%);
-    --hero-bg-image: radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 30%),
-      radial-gradient(circle at top right, rgba(251, 191, 36, 0.14), transparent 24%);
-    --surface: rgba(255, 255, 255, 0.64);
-    --surface-strong: rgba(255, 255, 255, 0.88);
+    --app-bg-image:
+      radial-gradient(circle at 14% 18%, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0) 34%),
+      radial-gradient(circle at 82% 14%, rgba(203, 244, 255, 0.74) 0%, rgba(203, 244, 255, 0) 32%),
+      radial-gradient(circle at 72% 42%, rgba(196, 223, 255, 0.48) 0%, rgba(196, 223, 255, 0) 29%),
+      radial-gradient(circle at 28% 70%, rgba(220, 234, 255, 0.46) 0%, rgba(220, 234, 255, 0) 34%),
+      radial-gradient(circle at 78% 78%, rgba(228, 214, 255, 0.34) 0%, rgba(228, 214, 255, 0) 26%),
+      linear-gradient(160deg, #fffdf8 0%, #f6fbff 26%, #edf6ff 58%, #f8f7ff 100%);
+    --hero-bg-image:
+      radial-gradient(circle at top left, rgba(56, 189, 248, 0.2), transparent 30%),
+      radial-gradient(circle at 82% 18%, rgba(167, 139, 250, 0.18), transparent 28%),
+      radial-gradient(circle at 60% 90%, rgba(16, 185, 129, 0.14), transparent 22%);
+    --surface: rgba(255, 255, 255, 0.6);
+    --surface-strong: rgba(255, 255, 255, 0.84);
     --text-primary: #0f172a;
     --text-secondary: #334155;
     --text-muted: #64748b;
-    --border: rgba(148, 163, 184, 0.28);
-    --accent: #0891b2;
-    --accent-soft: rgba(8, 145, 178, 0.12);
-    --accent-border: rgba(14, 165, 233, 0.22);
-    --glow: rgba(56, 189, 248, 0.18);
-    --card-gradient-start: rgba(14, 165, 233, 0.12);
-    --card-gradient-end: rgba(245, 158, 11, 0.1);
-    --visual-bg: linear-gradient(180deg, rgba(224, 242, 254, 0.92), rgba(255, 255, 255, 0.72));
+    --border: rgba(148, 163, 184, 0.22);
+    --accent: #0f9bb8;
+    --accent-soft: rgba(15, 155, 184, 0.12);
+    --accent-border: rgba(96, 165, 250, 0.24);
+    --glow: rgba(96, 165, 250, 0.16);
+    --card-gradient-start: rgba(96, 165, 250, 0.16);
+    --card-gradient-end: rgba(167, 139, 250, 0.11);
+    --visual-bg: linear-gradient(180deg, rgba(235, 247, 255, 0.96), rgba(255, 255, 255, 0.74));
     --face-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(226, 232, 240, 0.95));
     --eye: #0f172a;
   }
@@ -35,7 +43,9 @@
   body {
     @apply antialiased;
     font-family: "Space Grotesk", "Segoe UI", sans-serif;
-    background: #f8fbff;
+    background:
+      radial-gradient(circle at top, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0) 36%),
+      linear-gradient(180deg, #fdfcf8 0%, #f5faff 50%, #f7f8ff 100%);
     color: var(--text-primary);
     transition:
       background-color 0.45s ease,
@@ -57,5 +67,78 @@
       linear-gradient(rgba(148, 163, 184, 0.06) 1px, transparent 1px),
       linear-gradient(90deg, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
     background-size: 42px 42px;
+  }
+
+  .tech-grid {
+    background-image:
+      linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.9) 15%, rgba(0, 0, 0, 0.9) 86%, transparent 100%);
+  }
+
+  .mesh-overlay {
+    background-image:
+      radial-gradient(circle at 16% 22%, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0) 28%),
+      radial-gradient(circle at 75% 18%, rgba(125, 211, 252, 0.22) 0%, rgba(125, 211, 252, 0) 32%),
+      radial-gradient(circle at 58% 62%, rgba(129, 140, 248, 0.14) 0%, rgba(129, 140, 248, 0) 28%),
+      radial-gradient(circle at 30% 82%, rgba(45, 212, 191, 0.13) 0%, rgba(45, 212, 191, 0) 24%);
+  }
+
+  .network-lines {
+    background-image:
+      linear-gradient(120deg, transparent 0%, transparent 44%, rgba(103, 232, 249, 0.28) 49%, transparent 53%, transparent 100%),
+      linear-gradient(26deg, transparent 0%, transparent 46%, rgba(148, 163, 184, 0.2) 50%, transparent 54%, transparent 100%),
+      linear-gradient(164deg, transparent 0%, transparent 46%, rgba(167, 139, 250, 0.16) 50%, transparent 54%, transparent 100%);
+    background-size: 320px 240px, 280px 220px, 360px 260px;
+    animation: networkDrift 18s linear infinite;
+    opacity: 0.6;
+  }
+
+  .soft-wave {
+    background:
+      radial-gradient(120% 100% at 50% 0%, rgba(255, 255, 255, 0.46), rgba(255, 255, 255, 0) 58%),
+      linear-gradient(180deg, rgba(191, 219, 254, 0.05), rgba(191, 219, 254, 0.22));
+    clip-path: polygon(0 18%, 12% 12%, 24% 18%, 38% 8%, 54% 16%, 69% 10%, 84% 18%, 100% 12%, 100% 100%, 0 100%);
+    filter: blur(0.4px);
+  }
+
+  .orbit-ring {
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.28) inset,
+      0 0 36px rgba(96, 165, 250, 0.1);
+  }
+
+  .data-node {
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    box-shadow:
+      0 0 0 5px rgba(255, 255, 255, 0.24),
+      0 0 18px rgba(56, 189, 248, 0.2);
+  }
+}
+
+@keyframes floatBlob {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate3d(2.5%, -2%, 0) scale(1.04);
+  }
+
+  66% {
+    transform: translate3d(-2%, 2.5%, 0) scale(0.98);
+  }
+}
+
+@keyframes networkDrift {
+  0% {
+    background-position: 0 0, 0 0, 0 0;
+  }
+
+  100% {
+    background-position: 110px -42px, -80px 58px, 140px 22px;
   }
 }
