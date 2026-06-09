@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { GraduationCap } from "lucide-react";
 
 import fptEducation from "@/assets/image-school-company/fpoly-clean.png";
@@ -22,15 +21,9 @@ export function Education() {
     >
       <div className="grid gap-4 xl:grid-cols-2">
         {profile.education.map((item, index) => (
-          <motion.div
-            key={item.school}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.25 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-          >
-            <Card className="h-full overflow-hidden p-0">
-              <div className="grid h-full gap-0 sm:grid-cols-[156px_1fr]">
+          <div key={item.school} data-reveal="card">
+            <Card className={`h-full overflow-hidden p-0 ${index === 1 ? "xl:translate-y-10" : ""}`}>
+              <div className="grid h-full gap-0 sm:grid-cols-[180px_1fr]">
                 <div className="relative flex min-h-[170px] items-center justify-center overflow-hidden bg-white/92 p-6">
                   <img
                     src={educationImages[item.school as keyof typeof educationImages]}
@@ -41,7 +34,7 @@ export function Education() {
                     Learning
                   </div>
                 </div>
-                <div className="flex h-full flex-col justify-center p-6">
+                <div className="flex h-full flex-col justify-center p-6 md:p-7">
                   <div className="flex items-center gap-3">
                     <div className="rounded-2xl border border-cyan-400/20 bg-[var(--accent-soft)] p-2.5">
                       <GraduationCap className="size-5 text-[var(--accent)]" />
@@ -51,14 +44,14 @@ export function Education() {
                   <h3 className="mt-4 text-xl font-semibold text-[var(--text-primary)]">{item.school}</h3>
                   <p className="mt-2 text-[var(--text-secondary)]">{item.major}</p>
                   {item.achievement ? (
-                    <p className="mt-3 inline-flex w-fit rounded-full bg-slate-50 px-3 py-1.5 text-sm font-medium text-[var(--text-muted)]">
+                    <p className="mt-4 inline-flex w-fit rounded-full border border-white/70 bg-white/82 px-3 py-1.5 text-sm font-medium text-[var(--text-muted)]">
                       {item.achievement}
                     </p>
                   ) : null}
                 </div>
               </div>
             </Card>
-          </motion.div>
+          </div>
         ))}
       </div>
     </SectionShell>

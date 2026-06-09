@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Award } from "lucide-react";
 
 import sectionVisuals from "@/assets/section-visuals-generated.webp";
@@ -14,14 +13,9 @@ export function Certificates() {
       title="Chứng chỉ bổ sung cho nền tảng lập trình và AI"
       description="Một vài dấu mốc học tập giúp củng cố nền tảng kỹ thuật và định hướng AI ứng dụng."
     >
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.25 }}
-        transition={{ duration: 0.45 }}
-      >
+      <div data-reveal="card">
         <Card className="mb-4 overflow-hidden p-0">
-          <div className="grid items-stretch gap-0 lg:grid-cols-[1fr_1fr]">
+          <div className="grid items-stretch gap-0 lg:grid-cols-[0.92fr_1.08fr]">
             <div className="relative min-h-[260px] overflow-hidden bg-[var(--surface-strong)]">
               <img
                 src={sectionVisuals}
@@ -36,7 +30,7 @@ export function Certificates() {
             </div>
             <div className="flex flex-col justify-center p-6 md:p-8">
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-amber-500">Learning path</p>
-              <h3 className="mt-3 text-2xl font-semibold text-[var(--text-primary)]">
+              <h3 className="mt-3 text-[2rem] font-semibold leading-tight tracking-[-0.04em] text-[var(--text-primary)]">
                 Bổ sung đều cho cả <span className="text-amber-500">nền tảng lập trình</span> và <span className="text-amber-500">AI ứng dụng</span>
               </h3>
               <p className="mt-3 max-w-xl text-sm leading-6 text-[var(--text-secondary)]">
@@ -49,18 +43,12 @@ export function Certificates() {
             </div>
           </div>
         </Card>
-      </motion.div>
+      </div>
 
       <div className="grid gap-4 md:grid-cols-2">
         {profile.certificates.map((certificate, index) => (
-          <motion.div
-            key={certificate}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.25 }}
-            transition={{ duration: 0.45, delay: index * 0.1 }}
-          >
-            <Card className="flex h-full items-center gap-4 p-6">
+          <div key={certificate} data-reveal="card">
+            <Card className={`flex h-full items-center gap-4 p-6 ${index === 1 ? "md:translate-y-8" : ""}`}>
               <div className="rounded-2xl border border-cyan-400/20 bg-[var(--accent-soft)] p-3">
                 <Award className="size-6 text-[var(--accent)]" />
               </div>
@@ -69,7 +57,7 @@ export function Certificates() {
                 <p className="mt-1 text-sm text-[var(--text-muted)]">Chứng chỉ</p>
               </div>
             </Card>
-          </motion.div>
+          </div>
         ))}
       </div>
     </SectionShell>

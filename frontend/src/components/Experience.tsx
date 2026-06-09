@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Briefcase } from "lucide-react";
 
 import bit8Logo from "@/assets/image-school-company/bit8-clean.png";
@@ -34,41 +33,42 @@ export function Experience() {
       title="Hành trình làm việc"
       description="Những môi trường giúp mình rèn cả kỹ thuật, vận hành và khả năng đưa sản phẩm vào thực tế."
     >
-      <div className="grid gap-4">
+      <div className="relative grid gap-4 before:absolute before:bottom-0 before:left-[1.35rem] before:top-0 before:w-px before:bg-[linear-gradient(180deg,rgba(13,136,168,0.2),rgba(13,136,168,0.02))] md:before:left-1/2">
         {experiences.map((experience, index) => (
-          <motion.div
-            key={experience.company}
-            initial={{ opacity: 0, x: 24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.25 }}
-            transition={{ duration: 0.55, delay: index * 0.1 }}
-          >
-            <Card className="overflow-hidden p-0">
-              <div className="grid items-stretch gap-0 md:grid-cols-[170px_1fr]">
-                <div className="relative flex min-h-[180px] items-center justify-center overflow-hidden bg-white/92 p-6">
-                  <div className={companyImages[experience.company as keyof typeof companyImages].wrapperClass}>
-                    <img
-                      src={companyImages[experience.company as keyof typeof companyImages].src}
-                      alt={experience.company}
-                      className={companyImages[experience.company as keyof typeof companyImages].className}
-                    />
-                  </div>
-                  <div className="absolute inset-x-0 bottom-0 h-16 bg-[linear-gradient(180deg,transparent,rgba(255,255,255,0.82))]" />
-                </div>
-                <div className="p-6">
-                  <div className="flex flex-wrap items-center gap-3">
-                    <div className="rounded-2xl border border-cyan-400/20 bg-[var(--accent-soft)] p-2.5">
-                      <Briefcase className="size-5 text-[var(--accent)]" />
+          <div key={experience.company} data-reveal="card" className="relative md:grid md:grid-cols-2 md:gap-8">
+            <div className={`${index % 2 === 0 ? "md:pr-8" : "md:col-start-2 md:pl-8"}`}>
+              <Card className="overflow-hidden p-0">
+                <div className="grid items-stretch gap-0 sm:grid-cols-[148px_1fr]">
+                  <div className="relative flex min-h-[168px] items-center justify-center overflow-hidden bg-white/92 p-6">
+                    <div className={companyImages[experience.company as keyof typeof companyImages].wrapperClass}>
+                      <img
+                        src={companyImages[experience.company as keyof typeof companyImages].src}
+                        alt={experience.company}
+                        className={companyImages[experience.company as keyof typeof companyImages].className}
+                      />
                     </div>
-                    <p className="text-sm font-medium text-[var(--accent)]">{experience.period}</p>
+                    <div className="absolute bottom-4 left-4 rounded-full border border-white/70 bg-white/85 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--accent)] shadow-sm">
+                      Experience
+                    </div>
                   </div>
-                  <h3 className="mt-4 text-xl font-semibold text-[var(--text-primary)]">{experience.company}</h3>
-                  <p className="mt-2 font-medium text-[var(--text-secondary)]">{experience.role}</p>
-                  <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--text-secondary)]">{experience.summary}</p>
+                  <div className="p-6">
+                    <div className="flex flex-wrap items-center gap-3">
+                      <div className="rounded-2xl border border-cyan-400/20 bg-[var(--accent-soft)] p-2.5">
+                        <Briefcase className="size-5 text-[var(--accent)]" />
+                      </div>
+                      <p className="text-sm font-medium text-[var(--accent)]">{experience.period}</p>
+                    </div>
+                    <h3 className="mt-4 text-xl font-semibold text-[var(--text-primary)]">{experience.company}</h3>
+                    <p className="mt-2 font-medium text-[var(--text-secondary)]">{experience.role}</p>
+                    <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--text-secondary)]">{experience.summary}</p>
+                  </div>
                 </div>
-              </div>
-            </Card>
-          </motion.div>
+              </Card>
+            </div>
+            <div className="absolute left-[1.35rem] top-7 flex size-7 -translate-x-1/2 items-center justify-center rounded-full border border-white/80 bg-white shadow-[0_0_0_6px_rgba(239,245,251,1)] md:left-1/2">
+              <span className="size-2.5 rounded-full bg-[var(--accent)]" />
+            </div>
+          </div>
         ))}
       </div>
     </SectionShell>
